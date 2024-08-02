@@ -1,0 +1,102 @@
+<!-- templates/upload.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Query</title>
+    <style>
+       /* General Styles */
+<style>body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+input[type="file"],
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+h2 {
+    color: #333;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+pre {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload PDF and ask a question</h1>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <label for="file">Select a PDF file:</label>
+            <input type="file" id="file" name="file" accept=".pdf"><br>
+            <label for="question">Type your question:</label>
+            <input type="text" id="question" name="question" required><br>
+            <input type="submit" value="Submit">
+        </form>
+        {% if response %}
+        <h2>Response:</h2>
+        <pre>{{ response }}</pre>
+        {% endif %}
+    </div>
+</body>
+</html>
